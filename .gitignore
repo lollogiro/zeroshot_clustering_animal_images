@@ -1,0 +1,57 @@
+ # Virtual environment
+venv/
+.venv/
+env/
+.env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+
+# Distribution / packaging
+build/
+dist/
+eggs/
+*.egg-info/
+*.egg
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Outputs (generated files - can regenerate)
+outputs/
+results/
+
+# Test/custom data (large files)
+test_data/
+custom_data/
+
+# Logs
+*.log
+AGENT_LOG.txt
+
+# HuggingFace cache
+.cache/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Model weights (large files)
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Pickle files in root (outputs have their own ignore)
+*.pkl
