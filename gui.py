@@ -35,6 +35,7 @@ CUSTOM_DATA_DIR = REPO_ROOT / "custom_data"
 VIT_MODELS = [
     ("dinov3", "DINOv3", "★★★ BEST"),
     ("dinov2", "DINOv2", "★★ 2nd"),
+    ("bioclip2_5", "BioCLIP 2.5", ""),
     ("bioclip2", "BioCLIP 2", ""),
     ("clip", "CLIP", ""),
     ("siglip", "SigLIP", ""),
@@ -1197,7 +1198,15 @@ class ClusteringApp:
     def show_complete_dialog(self, output_path: str):
         """Show completion dialog."""
         if messagebox.askyesno("Complete", "Pipeline finished!\n\nOpen results folder?"):
-            os.startfile(output_path)
+            try:
+                import subprocess
+                p = str(output_path)
+                if sys.platform.startswith("win"):
+                    os.startfile(p)
+                else:
+                    subprocess.run(["xdg-open", p])
+            except Exception as e:
+                messagebox.showinfo("Open Folder", f"Could not open folder: {e}")
     
     def finish_pipeline(self):
         """Clean up after pipeline finishes."""
